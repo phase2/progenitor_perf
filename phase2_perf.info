@@ -1,0 +1,8 @@
+name = Phase2 Performance
+description = Stack for integration of performance improvements, such as Varnish.
+core = 7.x
+package = Phase2
+
+dependencies[] = entitycache
+dependencies[] = purge
+dependencies[] = expire

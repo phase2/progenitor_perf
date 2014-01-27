@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * Implements hook_exit().
+ */
+function phase2_perf_cache_exit() {
+  if (variable_get('cache', 0) && drupal_page_is_cacheable()) {
+    if (drupal_is_front_page()) {
+      $max_age = variable_get('phase2_perf_max_age_<front>', NULL);
+    }
+    else {
+      $max_age = variable_get('phase2_perf_max_age' . current_path(), NULL);
+    }
+    if (isset($max_age)) {
+      phase2_perf_set_max_age($max_age);
+    }
+  }
+}
+
+/**
+ * Override the site's caching headers.
+ *
+ * Only the last operation to set these headers will work. Only set these
+ * headers if:
+ *  - the page cache is enabled
+ *  - the current page is cacheable
+ *
+ * @param int $max_age
+ *   The page cache TTL in seconds.
+ *
+ * @return int
+ *   The actual max-age used, important if no parameter is used.
+ */
+function phase2_perf_set_max_age($max_age = NULL) {
+  if (!isset($max_age)) {
+    $max_age = variable_get('page_cache_maximum_age', 3600);
+  }
+  drupal_add_http_header('Cache-Control', 'public, max-age=' . $max_age);
+  drupal_add_http_header('Expires', date(DATE_RFC1123, REQUEST_TIME + $max_age));
+  
+  return $max_age;
+}
