@@ -3,16 +3,16 @@
 /**
  * Implements hook_exit().
  */
-function phase2_perf_cache_exit() {
+function progenitor_perf_cache_exit() {
   if (variable_get('cache', 0) && drupal_page_is_cacheable()) {
     if (drupal_is_front_page()) {
-      $max_age = variable_get('phase2_perf_max_age_<front>', NULL);
+      $max_age = variable_get('progenitor_perf_max_age_<front>', NULL);
     }
     else {
-      $max_age = variable_get('phase2_perf_max_age' . current_path(), NULL);
+      $max_age = variable_get('progenitor_perf_max_age' . current_path(), NULL);
     }
     if (isset($max_age)) {
-      phase2_perf_set_max_age($max_age);
+      progenitor_perf_set_max_age($max_age);
     }
   }
 }
@@ -31,7 +31,7 @@ function phase2_perf_cache_exit() {
  * @return int
  *   The actual max-age used, important if no parameter is used.
  */
-function phase2_perf_set_max_age($max_age = NULL) {
+function progenitor_perf_set_max_age($max_age = NULL) {
   if (!isset($max_age)) {
     $max_age = variable_get('page_cache_maximum_age', 3600);
   }
