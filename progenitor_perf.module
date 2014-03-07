@@ -3,9 +3,13 @@
 /**
  * Implements hook_exit().
  */
-function progenitor_perf_cache_exit() {
+function progenitor_perf_exit() {
   if (variable_get('cache', 0) && drupal_page_is_cacheable()) {
-    if (drupal_is_front_page()) {
+    // If the Drupal cache is enabled, hook_exit() will fire without
+    // bootstrapping to include path.inc. This results in a fatal error.
+    // Headers are cached as part of the page cache, so skipping this in that
+    // situation does not result in any behavioral change.
+    if (function_exists('drupal_is_front_page') && drupal_is_front_page()) {
       $max_age = variable_get('progenitor_perf_max_age_<front>', NULL);
     }
     else {
