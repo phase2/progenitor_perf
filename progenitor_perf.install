@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * Installation routines for the Phase2 Performance module.
+ * Installation routines for the Progenitor Performance module.
  */
 
 /**
  * Implements hook_install().
  */
-function phase2_perf_install() {
+function progenitor_perf_install() {
   // Trigger file expiration on file delete and file update.
   phase2_variable_default('expire_file_actions', array(
     1 => '1',

@@ -1,4 +1,4 @@
-# Phase2 Performance
+# Progenitor Performance
 
 This Stack module provides the recipe for standard caching and performance 
 optimization at Phase2, using Varnish & Memcached to faciitate the caching
@@ -55,8 +55,8 @@ part 1 there and part 2 in the individual site settings.
 
 ## Recommendations
 
-If you are using Acquia Hosting, install the **Phase2 Acquia** stack for the
-Acquia Purge module.
+If you are using Acquia Hosting, (create and) install the **Progenitor Acquia**
+stack for the Acquia Purge module.
 
 ## Maintainers
 
