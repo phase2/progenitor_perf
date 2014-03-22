@@ -6,3 +6,4 @@ package = Progenitor
 dependencies[] = entitycache
 dependencies[] = purge
 dependencies[] = expire
+dependencies[] = advagg
