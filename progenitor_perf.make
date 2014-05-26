@@ -11,10 +11,7 @@ projects[memcache][version] = 1.x
 
 projects[expire][type] = module
 projects[expire][subdir] = contrib
-projects[expire][download][type] = git
-projects[expire][download][branch] = 7.x-2.x
-projects[expire][download][url] = http://git.drupal.org/project/expire.git
-projects[expire][download][revision] = 31278181ee43cbb063885b130751053887d52411
+projects[expire][version] = 2.0-rc3
 
 projects[purge][type] = module
 projects[purge][subdir] = contrib
@@ -29,7 +26,7 @@ projects[entitycache][version] = 1.x
 
 projects[advagg][type] = module
 projects[advagg][subdir] = contrib
-projects[advagg][version] = 2.5
+projects[advagg][version] = 2.6
 
 projects[fast_404][type] = module
 projects[fast_404][subdir] = contrib
