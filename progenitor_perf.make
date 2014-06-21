@@ -26,7 +26,7 @@ projects[entitycache][version] = 1.x
 
 projects[advagg][type] = module
 projects[advagg][subdir] = contrib
-projects[advagg][version] = 2.6
+projects[advagg][version] = 2.7
 
 projects[fast_404][type] = module
 projects[fast_404][subdir] = contrib
