@@ -22,7 +22,7 @@ projects[purge][download][revision] = 2d8af70d8d9482b61f24fd292a18f40527ba9527
 
 projects[entitycache][type] = module
 projects[entitycache][subdir] = contrib
-projects[entitycache][version] = 1.x
+projects[entitycache][version] = 1.2
 
 projects[advagg][type] = module
 projects[advagg][subdir] = contrib
