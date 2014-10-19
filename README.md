@@ -61,10 +61,6 @@ to share the same memcache service.
 
 If you are using a Platform-as-a-Service hosting provider, this stack is probably not the way to go.
 
-## Maintainers
-
-* Adam Ross <aross@phase2technology.com>
-
 ## Keywords
 
 scalability, performance, infrastructure

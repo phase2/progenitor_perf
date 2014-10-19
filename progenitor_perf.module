@@ -22,6 +22,26 @@ function progenitor_perf_exit() {
 }
 
 /**
+ * Implements hook_workbench_moderation_transition().
+ */
+function progenitor_perf_workbench_moderation_transition($node, $previous_state, $new_state) {
+  // When the node's workflow state changes such that it toggles between core
+  // unpublished <=> published, signal to the Expire module that a node update
+  // has occurred.
+  //
+  // Currently this is hard-wired to a 'published' moderation state, this needs
+  // followup to be a bit more generic.
+  if ('published' == $previous_state || 'published' == $new_state) {
+    if (module_exists('expire')) {
+      expire_execute_expiration('node', $node, EXPIRE_NODE_UPDATE);
+      // Make sure menu cache gets updated so when pages regenerate if the node
+      // being modified was in the menu the menu is up to date.
+      register_shutdown_function('menu_cache_clear_all');
+    }
+  }
+}
+
+/**
  * Override the site's caching headers.
  *
  * Only the last operation to set these headers will work. Only set these
