@@ -9,44 +9,44 @@
  */
 function progenitor_perf_install() {
   // Trigger file expiration on file delete and file update.
-  phase2_variable_default('expire_file_actions', array(
+  progenitor_variable_default('expire_file_actions', array(
     1 => '1',
     2 => '2',
   ));
 
   // File expiration should purge the file URI.
-  phase2_variable_default('expire_file_file', 1);
+  progenitor_variable_default('expire_file_file', 1);
 
   // Trigger node expiration on node insert, update, and delete.
-  phase2_variable_default('expire_node_actions', array(
+  progenitor_variable_default('expire_node_actions', array(
     1 => '1',
     2 => '2',
     3 => '3',
   ));
 
   // Node expiration should purge the node URI.
-  phase2_variable_default('expire_node_node_page', 1);
+  progenitor_variable_default('expire_node_node_page', 1);
 
   // Use Purge module to manage expiration.
-  phase2_variable_default('expire_status', 2);
+  progenitor_variable_default('expire_status', 2);
 
   // Configure page caching for 1 hour.
-  phase2_variable_default('page_cache_maximum_age', 3600);
+  progenitor_variable_default('page_cache_maximum_age', 3600);
   // Turn on compression & asset preprocessing.
-  phase2_variable_default('page_compression', 1);
-  phase2_variable_default('preprocess_css', 1);
-  phase2_variable_default('preprocess_js', 1);
+  progenitor_variable_default('page_compression', 1);
+  progenitor_variable_default('preprocess_css', 1);
+  progenitor_variable_default('preprocess_js', 1);
 
   // Turn on the page cache.
-  phase2_variable_default('cache', 1);
+  progenitor_variable_default('cache', 1);
 }
 
 /**
  * @todo
- *   In the event we add a Phase2 utility module, add it as a dependency and
+ *   In the event we add a progenitor utility module, add it as a dependency and
  *   drop this function.
  */
-if (!function_exists('phase2_variable_default')) {
+if (!function_exists('progenitor_variable_default')) {
   /**
    * "Soft"-set a configuration value.
    *
@@ -55,7 +55,7 @@ if (!function_exists('phase2_variable_default')) {
    * defaults different from the modules using the variable, but not overriding
    * any intended configurations.
    */
-  function phase2_variable_default($name, $value) {
+  function progenitor_variable_default($name, $value) {
     global $conf;
 
     if (!isset($conf[$name])) {

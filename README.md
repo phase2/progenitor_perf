@@ -1,8 +1,8 @@
 # Progenitor Performance
 
-This Stack module provides the recipe for standard caching and performance 
-optimization at Phase2, using Varnish & Memcached to faciitate the caching
-of entities and pages.
+This [Progenitor Stack](http://github.com/phase2/progenitor) provides the
+dependencies and a module for basic caching and performance optimization
+with Varnish, Memcached, and other tricks internal to the Drupal app.
 
 ## Use Cases
 
@@ -36,6 +36,7 @@ part 1 there and part 2 in the individual site settings.
     $conf['page_cache_invoke_hooks'] = FALSE;
 
     :::php
+    // Add Memcache for internal caching.
     $conf['cache_backends'][] = 'sites/all/modules/memcached/memcache.inc';
     $conf['cache_default_class'] = 'MemCacheDrupal';
     $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
@@ -55,8 +56,7 @@ part 1 there and part 2 in the individual site settings.
 
 ## Recommendations
 
-If you are using Acquia Hosting, (create and) install the **Progenitor Acquia**
-stack for the Acquia Purge module.
+If you are using a Platform-as-a-Service hosting provider, this stack is probably not the way to go.
 
 ## Maintainers
 
