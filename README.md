@@ -51,6 +51,9 @@ part 1 there and part 2 in the individual site settings.
 
 ### Part 2
 
+The following shoudl be configured per site instance, it allows multiple sites
+to share the same memcache service.
+
     :::php
     $conf['memcache_key_prefix'] = 'site_prefix_';
 
