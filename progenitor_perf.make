@@ -1,13 +1,15 @@
 api = 2
 core = 7.x
 
+project[defaults][]
+
 projects[varnish][type] = module
 projects[varnish][subdir] = contrib
 projects[varnish][version] = 1.x
 
 projects[memcache][type] = module
 projects[memcache][subdir] = contrib
-projects[memcache][version] = 1.x
+projects[memcache][version] = 1.3-rc1
 
 projects[expire][type] = module
 projects[expire][subdir] = contrib
