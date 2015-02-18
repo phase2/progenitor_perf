@@ -39,6 +39,9 @@ function progenitor_perf_install() {
 
   // Turn on the page cache.
   progenitor_variable_default('cache', 1);
+
+  // Disable poormanscron.
+  variable_set('cron_safe_threshold', 0);
 }
 
 /**
